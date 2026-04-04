@@ -1,0 +1,57 @@
+# ── History ───────────────────────────────────────────────────────────────────
+export HISTFILE="/root/.local/share/bash/history"
+HISTSIZE=100000
+HISTFILESIZE=200000
+HISTCONTROL=ignoreboth:erasedups
+shopt -s histappend
+
+# ── PATH ──────────────────────────────────────────────────────────────────────
+export PATH="/root/.local/bin:/usr/local/bin:$PATH"
+
+# ── Prompt — Starship ────────────────────────────────────────────────────────
+# Requires a Nerd Font in your terminal (e.g. JetBrainsMono Nerd Font)
+eval "$(starship init bash)"
+
+# ── Modern CLI aliases ────────────────────────────────────────────────────────
+alias ls="eza --icons=auto"
+alias ll="eza -l --icons=auto --git"
+alias la="eza -la --icons=auto --git"
+alias lt="eza --tree --icons=auto --git-ignore -I '.git'"
+alias cat="bat --paging=never"
+alias ps="procs"
+
+# ── Navigation — zoxide ───────────────────────────────────────────────────────
+eval "$(zoxide init bash)"
+alias cd="z"
+
+# ── fzf ───────────────────────────────────────────────────────────────────────
+eval "$(fzf --bash)"
+
+export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
+export FZF_DEFAULT_OPTS="
+  --layout=reverse
+  --border=rounded
+  --height=80%
+  --info=inline
+  --bind='ctrl-/:toggle-preview'
+"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :200 {}'"
+export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window=up:3:wrap"
+export FZF_ALT_C_COMMAND="fd --type d --hidden --follow --exclude .git"
+export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -50'"
+
+# ── bat ───────────────────────────────────────────────────────────────────────
+export BAT_THEME="TwoDark"
+
+# ── delta (git diff pager) ────────────────────────────────────────────────────
+export GIT_PAGER="delta"
+
+# ── uv ────────────────────────────────────────────────────────────────────────
+# uv manages Python environments and packages — use instead of pip
+# uv venv / uv pip install / uv run / uv sync
+
+# ── Misc ─────────────────────────────────────────────────────────────────────
+export EDITOR="nano"
+export CLICOLOR=1
+eval "$(dircolors -b)"
