@@ -17,7 +17,7 @@ RUN dnf install -y --setopt=install_weak_deps=False \
     procs tokei \
     git-delta \
     sqlite \
-    python3 \
+    python3 pip3 \
     && dnf clean all
 
 # ── Timezone ─────────────────────────────────────────────────────────────────
@@ -25,7 +25,7 @@ ENV TZ=America/Chicago
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # ── uv (Python package manager) ───────────────────────────────────────────────
-RUN curl -LsSf https://astral.sh/uv/install.sh | UV_INSTALL_DIR=/usr/local/bin sh
+RUN pip3 install --no-cache-dir uv
 
 # ── Oh My Zsh ─────────────────────────────────────────────────────────────────
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
