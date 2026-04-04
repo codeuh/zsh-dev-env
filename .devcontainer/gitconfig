@@ -1,0 +1,34 @@
+[color]
+    ui = true
+
+[color "status"]
+    added     = 157        # mint
+    changed   = 216        # peach
+    untracked = 183        # lavender
+    branch    = 157        # mint
+
+[color "branch"]
+    current = 157 bold     # mint
+    local   = 153          # sky blue
+    remote  = 216          # peach
+
+[color "diff"]
+    meta   = 153           # sky blue
+    frag   = 183           # lavender
+    old    = 210           # salmon
+    new    = 157           # mint
+    commit = 228           # pale yellow
+
+[delta]
+    file-style             = 153 bold     # sky blue
+    file-decoration-style  = 153 ul
+    hunk-header-style      = syntax 183   # lavender
+    minus-style            = syntax 210   # salmon bg
+    minus-emph-style       = 210 bold
+    plus-style             = syntax 157   # mint bg
+    plus-emph-style        = 157 bold
+    line-numbers           = true
+    line-numbers-minus-style = 210        # salmon
+    line-numbers-plus-style  = 157        # mint
+    line-numbers-zero-style  = 245        # gray
+    commit-decoration-style  = 228 bold   # pale yellow

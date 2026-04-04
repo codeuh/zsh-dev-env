@@ -17,7 +17,6 @@ RUN dnf install -y --setopt=install_weak_deps=False \
     procs tokei \
     git-delta \
     sqlite \
-    # Python
     python3 \
     && dnf clean all
 
@@ -42,6 +41,8 @@ RUN mkdir -p /root/.local/share/zsh /root/.local/share/zoxide
 
 # ── Shell config ──────────────────────────────────────────────────────────────
 COPY .devcontainer/zshrc /root/.zshrc
+COPY .devcontainer/dst-custom.zsh-theme /root/.oh-my-zsh/themes/dst-custom.zsh-theme
+COPY .devcontainer/gitconfig /etc/gitconfig
 
 ENV TERM=xterm-256color
 ENV SHELL=/bin/zsh
