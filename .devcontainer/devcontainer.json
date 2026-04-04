@@ -13,7 +13,7 @@
     "source=${localEnv:HOME}/.claude,target=/root/.claude,type=bind,consistency=cached",
     "source=${localEnv:HOME}/.copilot,target=/root/.copilot,type=bind,consistency=cached",
     // Persistent volumes so history and zoxide jump db survive rebuilds
-    "source=${localWorkspaceFolderBasename}_bash_history,target=/root/.local/share/bash,type=volume",
+    "source=${localWorkspaceFolderBasename}_zsh_history,target=/root/.local/share/zsh,type=volume",
     "source=${localWorkspaceFolderBasename}_zoxide,target=/root/.local/share/zoxide,type=volume"
   ],
   "postCreateCommand": "uv venv --allow-existing .venv && uv pip install --python .venv/bin/python -r requirements.txt",
@@ -32,7 +32,10 @@
         "ms-toolsai.jupyter"
       ],
       "settings": {
-        "terminal.integrated.defaultProfile.linux": "bash",
+        "terminal.integrated.profiles.linux": {
+          "zsh": { "path": "/bin/zsh" }
+        },
+        "terminal.integrated.defaultProfile.linux": "zsh",
         "editor.formatOnSave": true,
         "[python]": {
           "editor.defaultFormatter": "charliermarsh.ruff"

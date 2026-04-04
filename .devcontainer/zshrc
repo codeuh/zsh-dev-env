@@ -1,17 +1,28 @@
+# ── Oh My Zsh ─────────────────────────────────────────────────────────────────
+export ZSH="$HOME/.oh-my-zsh"
+
+ZSH_THEME="agnoster"
+
+plugins=(
+  git
+  colored-man-pages
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
+
+source $ZSH/oh-my-zsh.sh
+
 # ── History ───────────────────────────────────────────────────────────────────
-export HISTFILE="/root/.local/share/bash/history"
+export HISTFILE="/root/.local/share/zsh/history"
 HISTSIZE=100000
-HISTFILESIZE=200000
-HISTCONTROL=ignoreboth:erasedups
-shopt -s histappend
-PROMPT_COMMAND="history -a${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
+SAVEHIST=200000
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt SHARE_HISTORY
+setopt APPEND_HISTORY
 
 # ── PATH ──────────────────────────────────────────────────────────────────────
 export PATH="/root/.local/bin:/usr/local/bin:$PATH"
-
-# ── Prompt — Starship ────────────────────────────────────────────────────────
-# Requires a Nerd Font in your terminal (e.g. JetBrainsMono Nerd Font)
-eval "$(starship init bash)"
 
 # ── Modern CLI aliases ────────────────────────────────────────────────────────
 alias ls="eza --icons=auto"
@@ -22,11 +33,11 @@ alias cat="bat --paging=never"
 alias ps="procs"
 
 # ── Navigation — zoxide ───────────────────────────────────────────────────────
-eval "$(zoxide init bash)"
+eval "$(zoxide init zsh)"
 alias cd="z"
 
 # ── fzf ───────────────────────────────────────────────────────────────────────
-eval "$(fzf --bash)"
+eval "$(fzf --zsh)"
 
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
 export FZF_DEFAULT_OPTS="
@@ -48,11 +59,6 @@ export BAT_THEME="TwoDark"
 # ── delta (git diff pager) ────────────────────────────────────────────────────
 export GIT_PAGER="delta"
 
-# ── uv ────────────────────────────────────────────────────────────────────────
-# uv manages Python environments and packages — use instead of pip
-# uv venv / uv pip install / uv run / uv sync
-
 # ── Misc ─────────────────────────────────────────────────────────────────────
 export EDITOR="nano"
 export CLICOLOR=1
-eval "$(dircolors -b)"
