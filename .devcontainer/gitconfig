@@ -2,33 +2,33 @@
     ui = true
 
 [color "status"]
-    added     = 157        # mint
-    changed   = 216        # peach
-    untracked = 183        # lavender
-    branch    = 157        # mint
+    added     = "#FF4971"     # hot pink  — staged
+    changed   = "#E9729D"     # pink      — modified
+    untracked = "#8897F4"     # periwinkle — untracked
+    branch    = "#FF4971"     # hot pink  — branch name
 
 [color "branch"]
-    current = 157 bold     # mint
-    local   = 153          # sky blue
-    remote  = 216          # peach
+    current = "#bd93f9" bold  # purple    — active branch
+    local   = "#F18FB0"       # light pink — local branches
+    remote  = "#E9729D"       # pink      — remote branches
 
 [color "diff"]
-    meta   = 153           # sky blue
-    frag   = 183           # lavender
-    old    = 210           # salmon
-    new    = 157           # mint
-    commit = 228           # pale yellow
+    meta   = "#F18FB0"        # light pink — file headers
+    frag   = "#8897F4"        # periwinkle — hunk headers
+    old    = "#B52A5B"        # crimson   — removed lines
+    new    = "#FF4971"        # hot pink  — added lines
+    commit = "#f1c4e0"        # pale pink — commit hash
 
 [delta]
-    file-style             = 153 bold     # sky blue
-    file-decoration-style  = 153 ul
-    hunk-header-style      = syntax 183   # lavender
-    minus-style            = syntax 210   # salmon bg
-    minus-emph-style       = 210 bold
-    plus-style             = syntax 157   # mint bg
-    plus-emph-style        = 157 bold
+    file-style             = "#bd93f9" bold
+    file-decoration-style  = "#bd93f9" ul
+    hunk-header-style      = syntax "#8897F4"
+    minus-style            = syntax "#250e17"
+    minus-emph-style       = "#B52A5B" bold
+    plus-style             = syntax "#1a1030"
+    plus-emph-style        = "#FF4971" bold
     line-numbers           = true
-    line-numbers-minus-style = 210        # salmon
-    line-numbers-plus-style  = 157        # mint
-    line-numbers-zero-style  = 245        # gray
-    commit-decoration-style  = 228 bold   # pale yellow
+    line-numbers-minus-style = "#B52A5B"
+    line-numbers-plus-style  = "#FF4971"
+    line-numbers-zero-style  = "#a8899c"
+    commit-decoration-style  = "#E9729D" bold

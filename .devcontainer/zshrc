@@ -26,28 +26,28 @@ setopt APPEND_HISTORY
 # ── PATH ──────────────────────────────────────────────────────────────────────
 export PATH="/root/.local/bin:/usr/local/bin:$PATH"
 
-# ── eza colors (pastel palette) ───────────────────────────────────────────────
-# Format: ANSI codes — 38;5;N = 256-color fg, 1 = bold
+# ── eza colors (shadotheme — truecolor) ───────────────────────────────────────
+# Format: 38;2;R;G;B = 24-bit truecolor fg, 1 = bold
 export EZA_COLORS="\
-di=38;5;153:\
-ex=38;5;157:\
-ln=38;5;218:\
-sn=38;5;228:\
-sb=38;5;216:\
-da=38;5;228:\
-hd=38;5;183;1:\
-lp=38;5;153:\
-ga=38;5;157:\
-gm=38;5;216:\
-gd=38;5;210:\
-gv=38;5;218:\
-gt=38;5;183:\
-gi=38;5;245:\
-ur=38;5;157:uw=38;5;216:ux=38;5;218:\
-gr=38;5;157:gw=38;5;216:gx=38;5;218:\
-tr=38;5;157:tw=38;5;216:tx=38;5;218:\
-uu=38;5;218:gu=38;5;218:\
-*.ipynb=38;5;228"
+di=38;2;241;143;176:\
+ex=38;2;189;147;249:\
+ln=38;2;233;114;157:\
+sn=38;2;241;196;224:\
+sb=38;2;233;114;157:\
+da=38;2;136;151;244:\
+hd=38;2;189;147;249;1:\
+lp=38;2;241;143;176:\
+ga=38;2;255;73;113:\
+gm=38;2;233;114;157:\
+gd=38;2;181;42;91:\
+gv=38;2;241;143;176:\
+gt=38;2;136;151;244:\
+gi=38;2;168;137;156:\
+ur=38;2;189;147;249:uw=38;2;233;114;157:ux=38;2;255;73;113:\
+gr=38;2;189;147;249:gw=38;2;233;114;157:gx=38;2;255;73;113:\
+tr=38;2;189;147;249:tw=38;2;233;114;157:tx=38;2;255;73;113:\
+uu=38;2;241;143;176:gu=38;2;241;143;176:\
+*.ipynb=38;2;136;151;244"
 
 # ── Modern CLI aliases ────────────────────────────────────────────────────────
 alias ls="eza --icons=auto"
@@ -66,6 +66,10 @@ eval "$(fzf --zsh)"
 
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
 export FZF_DEFAULT_OPTS="
+  --color=fg:#e3c7fc,bg:#191724,hl:#bd93f9
+  --color=fg+:#f1c4e0,bg+:#140a1d,hl+:#F18FB0
+  --color=info:#8897F4,prompt:#E9729D,pointer:#F18FB0
+  --color=marker:#FF4971,spinner:#E9729D,header:#bd93f9
   --layout=reverse
   --border=rounded
   --height=80%
@@ -79,7 +83,7 @@ export FZF_ALT_C_COMMAND="fd --type d --hidden --follow --exclude .git"
 export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -50'"
 
 # ── bat ───────────────────────────────────────────────────────────────────────
-export BAT_THEME="TwoDark"
+export BAT_THEME="Dracula"
 
 # ── delta (git diff pager) ────────────────────────────────────────────────────
 export GIT_PAGER="delta"
@@ -88,20 +92,22 @@ export GIT_PAGER="delta"
 export EDITOR="nano"
 export CLICOLOR=1
 
-# ── Syntax highlighting colors (pastel palette) ───────────────────────────────
-ZSH_HIGHLIGHT_STYLES[command]='fg=157'            # mint   — known commands
-ZSH_HIGHLIGHT_STYLES[alias]='fg=157'              # mint   — aliases
-ZSH_HIGHLIGHT_STYLES[builtin]='fg=153'            # sky blue — builtins (cd, echo…)
-ZSH_HIGHLIGHT_STYLES[function]='fg=153'           # sky blue — functions
-ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=183'      # lavender — if/for/while…
-ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=228'   # pale yellow — 'strings'
-ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=228'   # pale yellow — "strings"
-ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=228'   # pale yellow — $'strings'
-ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=216'     # peach — -flags
-ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=216'     # peach — --flags
-ZSH_HIGHLIGHT_STYLES[path]='fg=153,underline'     # sky blue — file paths
-ZSH_HIGHLIGHT_STYLES[globbing]='fg=218'           # pink   — * ? globs
-ZSH_HIGHLIGHT_STYLES[history-expansion]='fg=218'  # pink   — !history
-ZSH_HIGHLIGHT_STYLES[assign]='fg=183'             # lavender — VAR=value
-ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=210'      # salmon — unrecognized
-ZSH_HIGHLIGHT_STYLES[comment]='fg=245'            # gray   — # comments
+# ── Syntax highlighting colors (shadotheme — truecolor) ───────────────────────
+ZSH_HIGHLIGHT_STYLES[command]='fg=#bd93f9'              # purple     — known commands
+ZSH_HIGHLIGHT_STYLES[alias]='fg=#bd93f9'                # purple     — aliases
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=#F18FB0'              # light pink — builtins (cd, echo…)
+ZSH_HIGHLIGHT_STYLES[function]='fg=#F18FB0'             # light pink — functions
+ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=#8897F4'        # periwinkle — if/for/while…
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=#f1c4e0'   # pale pink  — 'strings'
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=#f1c4e0'   # pale pink  — "strings"
+ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=#f1c4e0'   # pale pink  — $'strings'
+ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=#E9729D'     # pink       — -flags
+ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=#E9729D'     # pink       — --flags
+ZSH_HIGHLIGHT_STYLES[path]='fg=#F18FB0,underline'       # light pink — file paths
+ZSH_HIGHLIGHT_STYLES[globbing]='fg=#FF4971'             # hot pink   — * ? globs
+ZSH_HIGHLIGHT_STYLES[history-expansion]='fg=#FF4971'    # hot pink   — !history
+ZSH_HIGHLIGHT_STYLES[assign]='fg=#8897F4'               # periwinkle — VAR=value
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#B52A5B'        # crimson    — unrecognized
+ZSH_HIGHLIGHT_STYLES[comment]='fg=#a8899c'              # muted mauve — # comments
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#a8899c"            # muted mauve — ghost text
