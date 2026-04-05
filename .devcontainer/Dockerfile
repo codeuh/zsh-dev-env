@@ -7,7 +7,6 @@ RUN dnf install -y --setopt=install_weak_deps=False \
     make gcc \
     procps-ng findutils util-linux which \
     tzdata nano vim \
-    bash-completion \
     zsh \
     # Modern CLI replacements (all in Fedora repos)
     bat eza zoxide fzf ripgrep fd-find \
